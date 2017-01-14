@@ -51,8 +51,8 @@ module OrphanRecords
   # then pass it to the associated block
   def self.get_associations
     tableInfos = []
-    configurations = YAML::load(File.open(File.join(Rails.root, "config/database.yml")))
-    ActiveRecord::Base.establish_connection configurations[Rails.env]
+    # configurations = YAML::load(File.open(File.join(Rails.root, "config/database.yml")))
+    # ActiveRecord::Base.establish_connection configurations[Rails.env]
     ActiveRecord::Base.connection.tables.each do |table_name|
       # puts "Looking at table: #{table_name}"
       tableInfos << get_schema_info(table_name)
